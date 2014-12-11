@@ -4,7 +4,7 @@
 #
 ###
 FROM ubuntu:14.04
-MAINTAINER Kingsquare <docker@kingsquare.nl>
+MAINTAINER Ian Blenke <ian@blenke.com>
 
 WORKDIR /usr/local/newrelic_aws_cloudwatch_plugin-latest
 
@@ -29,4 +29,4 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
 	apt-get autoremove -yq --purge && \
 	rm -rf latest.tar.gz /tmp/* /var/tmp/* /var/lib/apt/lists/*
 
-ENTRYPOINT ["bundle", "exec", "./bin/newrelic_aws"]
+CMD ["bundle", "exec", "./bin/newrelic_aws"]
