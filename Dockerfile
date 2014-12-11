@@ -24,6 +24,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
 	sed -e "s/YOUR_LICENSE_KEY_HERE/<%= ENV[\"NEWRELIC_KEY\"] %>/g" -i config/newrelic_plugin.yml && \
 	sed -e "s/YOUR_AWS_ACCESS_KEY_HERE/<%= ENV[\"AWS_ACCESS_KEY\"] %>/g" -i config/newrelic_plugin.yml && \
 	sed -e "s/YOUR_AWS_SECRET_KEY_HERE/<%= ENV[\"AWS_SECRET_KEY\"] %>/g" -i config/newrelic_plugin.yml && \
+	sed -e "s/: false/: true/g" -i config/newrelic_plugin.yml && \
 	bundle install --clean --quiet --without test && \
 	apt-get remove -yq --purge build-essential curl ruby-dev libxml2-dev libxslt-dev && \
 	apt-get autoremove -yq --purge && \
